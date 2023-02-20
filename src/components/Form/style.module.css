@@ -1,0 +1,99 @@
+@import '../../vars.css';
+
+
+/*------------ MainForm ------------*/
+.modal_container {
+    position: fixed;
+    background-color: #2228;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.d_flex {
+    display: flex;
+}
+
+.modal {
+    width: 320px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 0 #0006, 0 0 8px 2px #0004;
+    display: grid;
+    gap: 20px;
+    position: relative;
+    height: auto;
+    overflow: visible;
+}
+
+.modal_close {
+    box-sizing: border-box;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.modal_close:hover {
+    color: var(--color-red);
+}
+
+
+/*------------ LoginForm ------------*/
+
+form {
+    margin: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form_header {
+    font-size: 22px;
+    font-weight: 700;
+    text-align: center;
+    margin: 0;
+}
+
+input {
+    flex: 1;
+    height: 30px;
+    box-sizing: border-box;
+    padding: 10px 15px;
+    border-radius: 15px;
+    border: 1px solid silver;
+    font-size: 16px;
+    outline: none;
+    display: block;
+}
+
+input:focus {
+    border-color: var(--color-red);
+}
+
+.error {
+    text-align: left;
+    font-size: 0.9em;
+    padding-left: 5px;
+}
+
+.pos_rel {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.eye {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    display: block;
+    cursor: pointer;
+}

@@ -1,0 +1,46 @@
+@import '../../vars.css';
+
+.addPost_form {
+    margin: 30px 0;
+    box-shadow: var(--box-shadow-main);
+    padding: 0 25px 25px;
+    border-radius: 20px;
+}
+
+.addPost_form input,
+.addPost_form textarea {
+    padding: 18px 15px;
+    border-radius: 10px;
+}
+
+.addPost_form textarea {
+    min-height: 300px;
+    height: 100%;
+    max-width: 974px;
+    min-width: 260px;
+}
+
+.heading {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-top: 20px;
+}
+
+.img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.img img {
+    width: auto;
+    height: 200px;
+}
+
+.item {
+    display: grid;
+    gap: 10px;
+    grid-template-rows: auto 1fr;
+    margin-bottom: 10px;
+}

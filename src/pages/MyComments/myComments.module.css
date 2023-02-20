@@ -1,0 +1,16 @@
+.container {
+    height: 100%;
+    min-height: 100vh;
+
+    margin: 30px 0;
+}
+
+.content {
+    border-radius: 20px;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 25px;
+    justify-content: center;
+}

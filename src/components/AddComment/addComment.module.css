@@ -1,0 +1,26 @@
+@import '../../vars.css';
+
+.container {
+    margin: 20px 0;
+}
+
+.visible {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.not_visible {
+    display: none;
+}
+
+textarea {
+    border: 1px solid var(--color-darkgrey);
+    padding: 10px;
+    border-radius: 10px;
+    min-height: 80px;
+    max-width: 500px;
+    resize: vertical;
+}
+textarea:focus {
+    border-color: var(--color-red);
+}

@@ -1,0 +1,27 @@
+@import '../../vars.css';
+
+.container {
+    padding: 10px;
+    min-height: 100vh;
+}
+
+.content {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 7px;
+    padding: 20px;
+    box-shadow: var(--box-shadow-main);
+    border-radius: 20px;
+}
+
+.item {
+    cursor: pointer;
+    color: #000;
+}
+
+.item:hover {
+    color: var(--color-red);
+}
+
+

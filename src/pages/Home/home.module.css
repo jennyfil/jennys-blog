@@ -1,0 +1,29 @@
+.home {
+    min-height: 100vh;
+    height: 100%;
+    margin: 30px 0;
+}
+
+.content {
+    border-radius: 20px;
+    min-height: 100vh;
+}
+
+.top_menu {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.menu_block {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.menu_block a {
+    box-shadow: var(--box-shadow-main);
+    border-radius: 10px;
+}

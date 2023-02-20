@@ -1,0 +1,18 @@
+@import '../../vars.css';
+
+.btnLink {
+    background-color: transparent;
+    font-size: 1em;
+    font-weight: 700;
+    color: #000;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px 18px;
+    display: block;
+    margin: 10px 0;
+    text-align-last: left;
+}
+
+.btnLink:hover {
+    color: var(--color-red);
+}

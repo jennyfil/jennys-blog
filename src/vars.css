@@ -1,0 +1,7 @@
+:root {
+    --color-red: indianred;
+    --color-lightred: rgb(243, 181, 181);
+
+    --color-darkgrey: #222;
+    --box-shadow-main: rgb(204, 204, 204) 0px 2px 10px;
+}

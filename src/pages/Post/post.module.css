@@ -1,0 +1,94 @@
+@import '../../vars.css';
+
+.post {
+    height: 100%;
+    min-height: 100vh;
+    padding: 20px 0;
+    font-size: 1em;
+}
+
+.btn_block {
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+
+.btn_block svg {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    color: #000;
+}
+.btn_block svg:hover {
+    color: var(--color-red);
+}
+
+.content {
+    margin: 20px 0;
+    font-size: 1.1em;
+    line-height: 1.5;
+}
+
+.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 40px 40px 0;
+    height: 300px;
+    float: left;
+}
+
+.img img {
+    height: 100%;
+    width: auto;
+}
+
+.author_and_data,
+.cnt_comments {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item {
+    font-size: 1.3em;
+}
+
+.cnt_comments {
+    justify-content: start;
+    gap: 30px;
+    margin: 5px 0;
+}
+
+.favorite {
+    text-align: right;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.favorite {
+    color: indianred;
+}
+
+h3 {
+    margin-top: 70px;
+    cursor: pointer;
+    font-size: 1.4em;
+}
+
+.comments {
+    margin-bottom: 20px;
+    font-size: 1.3em;
+}
+
+.visible {
+    display: block;
+}
+.not_visible {
+    display: none;
+}
+
+.comments_block {
+    clear: both;
+}

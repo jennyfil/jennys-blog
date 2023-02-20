@@ -1,0 +1,22 @@
+.search {
+    position: relative;
+    width: 300px;
+    margin: 20px 0;
+}
+
+.input {
+    padding: 15px 25px 15px 15px;
+    min-width: 300px;
+    border: 1px solid #000;
+    border-radius: 20px;
+    font-size: 1em;
+}
+
+.loupe,
+.cross {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translate(0, -80%);
+    cursor: pointer;
+}
