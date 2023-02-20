@@ -1,7 +1,11 @@
 @import '../../vars.css';
 
 .container {
+    padding: 10px;
     min-height: 100vh;
+}
+
+.content {
     padding: 20px;
     box-shadow: var(--box-shadow-main);
     margin: 30px 0;

@@ -14,5 +14,9 @@ export default React.createContext({
     authors: [],
     setAuthors: () => {},
     searchQuery: '',
-    setSearchQuery: () => {}
+    setSearchQuery: () => {},
+    postsByText: [],
+    setPostsByText: () => {},
+    tags: [],
+    setTags: () => {},
 })

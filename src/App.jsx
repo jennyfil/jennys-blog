@@ -4,7 +4,7 @@ import { Routes, Route } from 'react-router-dom';
 import style from './App.module.css';
 
 import { Api } from './utils/api';
-import { path, sortPosts } from './utils/constants';
+import { path, sortPosts, sortAuthors } from './utils/constants';
 import Header from './components/Header/Header';
 import StartPage from './components/StartPage/StartPage';
 import Footer from './components/Footer/Footer';
@@ -20,6 +20,7 @@ import Author from './pages/Author/Author';
 import MyPosts from './pages/MyPosts/MyPosts';
 import FavoritePosts from './pages/FavoritePosts/FavoritePosts';
 import MyComments from './pages/MyComments/MyComments';
+import Tags from './pages/Tags/Tags';
 
 
 function App() {
@@ -33,8 +34,8 @@ function App() {
 
   const [authors, setAuthors] = useState([]);
   const [tags, setTags] = useState([]);
-
   const [searchQuery, setSearchQuery] = useState('');
+  const [postsByText, setPostsByText] = useState([]);
 
   const year = new Date().getFullYear();
 
@@ -45,16 +46,15 @@ function App() {
   useEffect(() => {
     if (token) {
       api.getAllPosts()
-          .then(posts => {
-              sortPosts(posts);
-              setPosts(posts);
-          })
+        .then(posts => {
+            sortPosts(posts);
+            setPosts(posts);
+        })
           
-      api.getAllUsers()
-        .then(data => {
-          // console.log(authors);
-          setAuthors(data);
-          });
+      // api.getAllUsers()
+      //   .then(users => {
+      //     setAuthors(users);
+      //     });
     }
 }, [api]);
 
@@ -68,17 +68,39 @@ function App() {
     }
   },[posts])
 
-  const onSearch = (newSearchQuery) => {
-    setSearchQuery(newSearchQuery);
-    api.searchPosts(searchQuery)
-      .then(data => {
-          // console.log(data);
-          sortPosts(data);
-          setPosts(data);
 
-      })
-  }
-
+  useEffect(() => {
+    let authorsArr = [];
+    let tagsArr = [];
+    posts.forEach(post => {
+        if (!authorsArr.filter(el => el._id === post.author._id).length) {
+            // if (post.author.name !== "Иван Иванов") {
+              authorsArr.push(post.author);
+            // }
+        }
+        post.tags.forEach(tag => {
+          // console.log(tag);
+          let tgs = tag.split(/[\s,\.!]/);
+          tgs.forEach(el => {
+            if (el) {
+              if (!tagsArr.includes(el.toLowerCase())) {
+                tagsArr.push(el.toLowerCase());
+              }
+            }
+          })
+        });
+    });
+    tagsArr.sort();
+    authorsArr.sort((a, b) => {
+        if (a.name > b.name) {
+            return 1;
+        } else {
+            return -1;
+        }
+    });
+    setAuthors(authorsArr);
+    setTags(tagsArr);
+}, [posts])
 
   return (
     <Context.Provider value={{
@@ -94,8 +116,12 @@ function App() {
       setPosts,
       authors,
       setAuthors,
-      // searchQuery,
-      // setSearchQuery
+      searchQuery,
+      setSearchQuery,
+      postsByText,
+      setPostsByText,
+      tags,
+      setTags
     }}>
       <Header />
 
@@ -107,12 +133,14 @@ function App() {
           <Route path={path + 'modify/:id'} element={<AddPost />} />
           <Route path={path + "posts/:id"} element={<Post />} />
           <Route path={path + "profile"} element={<Profile />} />
-          <Route path={path + 'home'} element={<Search onSearch={onSearch} />} />
+          <Route path={path + 'home'} element={<Search />} />
           <Route path={path + "authors"} element={<Authors />} />
           <Route path={path + "author/:id"} element={<Author />} />
           <Route path={path + "my-posts"} element={<MyPosts />} />
           <Route path={path + "favorite"} element={<FavoritePosts />} />
           <Route path={path + "my-comments"} element={<MyComments />} />
+          <Route path={path + "tags"} element={<Tags />} />
+
 
         </Routes>
         

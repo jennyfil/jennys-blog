@@ -23,6 +23,42 @@ const Post = () => {
     const [like, setLike] = useState(false);
     const [visible, setVisible] = useState(true);
 
+
+    // useEffect(() => {
+    //     let arr = [];
+    //     let tg = [];
+    //     posts.forEach(post => {
+    //         if (!arr.filter(el => el._id === post.author._id).length) {
+    //             if (post.author.name !== "Иван Иванов") {
+    //                 arr.push(post.author);
+    //             }
+    //         }
+    //         post.tags.forEach(t => {
+    //             let tgs = t.split(/[\s,\.!]/);
+    //             tgs.forEach(el => {
+    //                 if (el) {
+    //                     if (!tg.includes(el.toLowerCase())) {
+    //                         tg.push(el.toLowerCase());
+    //                     }
+    //                 }
+    //             })
+    //         });
+    //     });
+    //     tg.sort();
+    //     arr.sort((a, b) => {
+    //         if (a.name > b.name) {
+    //             return 1;
+    //         } else {
+    //             return -1;
+    //         }
+    //     });
+    //     setAuthors(arr);
+    //     setTags(tg);
+    //     // fPosts.length === 0 && filterPosts([...posts]);
+    // }, [posts])
+
+
+
     useEffect(() => {
         api.getPostById(id)
             .then(data => {

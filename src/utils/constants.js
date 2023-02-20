@@ -15,11 +15,11 @@ export const dataFilter = (prev, data) => {
   })
 }
 
-// export const sortData = (data) => {
-//   let arr = [];
-//   data.forEach((el) => {arr.push(el.name);});
-//   return arr.sort();
-// };
+// export const sortAuthors = (data) => {
+//   data.sort((a, b) => a.name.slice(0,3).toLowerCase() - b.name.slice(0,3).toLowerCase());
+//   return data;
+// }
+
 
 export const postData = (data) => {
   if(data) {

@@ -23,11 +23,9 @@ const MyComments = () => {
         <div className={style.container}>
             <Menu />
             <div className={style.content}>
-                {myComments.length > 0
-                ? myComments.map(comment => <MyComment {...comment} key={comment._id} />)
-                : <EmptyPage fromPage={'myComments'} />
-                }
+                { myComments.length > 0 && myComments.map(comment => <MyComment {...comment} key={comment._id} />) }
             </div>
+            { !myComments.length && <EmptyPage fromPage={'myComments'} /> }
         </div>
     )
 }

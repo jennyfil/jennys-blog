@@ -15,8 +15,9 @@ const AddPost = () => {
     const [title, setTitle] = useState('');
     const [text, setText] = useState('');
     const [image, setImage] = useState('');
-    // const [tag, setTag] = useState('');
-    // const [tags, setTags] = useState([]);
+
+    const [tag, setTag] = useState('');
+    const [tags, setTags] = useState([]);
 
     const navigate = useNavigate();
     const {id} = useParams();
@@ -35,7 +36,7 @@ const AddPost = () => {
         }
     }
 
-    const formHandler = (e) => {
+    const addPost = (e) => {
         e.preventDefault();
         const body = {
             title: title,
@@ -43,6 +44,10 @@ const AddPost = () => {
         }
 
         if(image) {body.image = image}
+
+        if (tags.length) {
+            body.tags = tag ? [...tags, tag] : tags;
+        }
 
         if(id) {
             api.modifyPostById(id, body)
@@ -60,7 +65,23 @@ const AddPost = () => {
         setTitle('');
         setText('');
         setImage('');
+        setTags([]);
+        setTag("");
     }
+
+    // const addTag = (e) => {
+    //     let text = e.target.value;
+    //     let symbol = text[text.length - 1];
+    //     if (symbol === ",") {
+    //         if (!tags.includes(text.slice(0, text.length - 1))) {
+    //             setTags(prev => [...prev, text.slice(0, text.length - 1)]);
+    //         }
+    //         console.log(tags);
+    //         setTag("");
+    //     } else {
+    //         setTag(text);
+    //     }
+    // }
 
     useEffect(() => {
         if(id) {
@@ -74,10 +95,10 @@ const AddPost = () => {
     }, [])
 
     return (
-        <>
+        <div className={style.container}>
             <ButtonBack toPath={id ? `${path}posts/${id}` : `${path}home`} />
             
-            <form className={style.addPost_form} onSubmit={formHandler}>
+            <form className={style.addPost_form} onSubmit={addPost}>
                 <h2 className={style.heading}>
                     {!id ? 'Новый пост' : 'Изменить пост'}
                 </h2>
@@ -114,12 +135,23 @@ const AddPost = () => {
                         onInput={(e) => setText(e.target.value)} />
                 </div>
 
+
+
+                {/* <div className={style.item}>
+                    <label htmlFor="tags">Теги</label>
+                    <input
+                        id="tags"
+                        placeholder="Введите теги через запятую"
+                        value={tag}
+                        onInput={addTag} />
+                </div> */}
+
                 <div>
                     <Button btnText={!id ? "Создать пост" : "Изменить пост"} type="submit" />
                 </div>
             </form>
 
-        </>
+        </div>
     )
 }
 

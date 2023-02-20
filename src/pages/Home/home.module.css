@@ -27,3 +27,10 @@
     box-shadow: var(--box-shadow-main);
     border-radius: 10px;
 }
+
+
+.content p {
+    font-size: 1.3em;
+    text-align: center;
+    padding: 30px;
+}

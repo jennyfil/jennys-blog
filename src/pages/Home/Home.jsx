@@ -10,7 +10,7 @@ import context from '../../context/context';
 
 
 const Home = () => {
-    const {posts} = useContext(context);
+    const {posts, searchQuery, postsByText} = useContext(context);
 
     return (
         <div className={style.home}>
@@ -18,13 +18,14 @@ const Home = () => {
             <div className={style.top_menu}>
                 <div className={style.menu_block}>
                     <ButtonLink btnText='Авторы' toPath={path + "authors"} />
-                    <ButtonLink btnText='Теги' />
+                    <ButtonLink btnText='Теги' toPath={path + "tags"} />
                 </div>
                 <Search />
             </div>
 
             <div className={style.content}>
-                <PostList posts={posts} />
+                <PostList posts={searchQuery ? postsByText : posts} />
+                {!postsByText.length && <p>По вашему запросу посты не найдены</p>}
             </div>
 
         </div>
