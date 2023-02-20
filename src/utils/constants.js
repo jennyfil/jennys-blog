@@ -15,12 +15,6 @@ export const dataFilter = (prev, data) => {
   })
 }
 
-// export const sortAuthors = (data) => {
-//   data.sort((a, b) => a.name.slice(0,3).toLowerCase() - b.name.slice(0,3).toLowerCase());
-//   return data;
-// }
-
-
 export const postData = (data) => {
   if(data) {
       let subText = "";

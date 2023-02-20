@@ -7,7 +7,7 @@ import context from '../../context/context';
 import Button from '../../components/Button/Button';
 import ButtonBack from '../../components/ButtonBack/ButtonBack';
 import noImg from '../../assets/images/no-image.png';
-import { path, sortPosts } from '../../utils/constants';
+import { path } from '../../utils/constants';
 
 
 const AddPost = () => {
