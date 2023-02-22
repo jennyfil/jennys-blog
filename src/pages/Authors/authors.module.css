@@ -6,13 +6,15 @@
 }
 
 .content {
-    margin-top: 10px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 7px;
-    padding: 20px;
+    margin-top: 10px 0 30px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 40px;
     box-shadow: var(--box-shadow-main);
-    border-radius: 20px;
+    border-radius: 30px;
+    font-size: 1.2em;
 }
 
 .item {

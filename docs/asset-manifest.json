@@ -1,24 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.3bc02ca7.css",
-    "main.js": "/static/js/main.cbbae7cd.js",
-    "static/media/bg.jpg": "/static/media/bg.f8154b0707828c548b1c.jpg",
-    "static/media/no-image.png": "/static/media/no-image.0229ffbf04c314310f9f.png",
-    "static/media/emptyPage.jpg": "/static/media/emptyPage.4091adb41aeee75a2b7f.jpg",
-    "index.html": "/index.html",
-    "static/media/trash3.svg": "/static/media/trash3.0821cea5d47147fcccea629c96c3df80.svg",
-    "static/media/pencil-fill.svg": "/static/media/pencil-fill.4c640d95a61cb0764a8340cbe3f87cd2.svg",
-    "static/media/pencil-square.svg": "/static/media/pencil-square.75d078b547e1c0688445b9e47edfd1b9.svg",
-    "static/media/eye-slash-fill.svg": "/static/media/eye-slash-fill.c1ca9f1d71dd0735bdebe176ca132887.svg",
-    "static/media/check-lg.svg": "/static/media/check-lg.6fe048a4880199518d7f8eb12152ed04.svg",
-    "static/media/search.svg": "/static/media/search.b1f781b99ceaafb9c831949bb54ae3cd.svg",
-    "static/media/x-lg.svg": "/static/media/x-lg.f520e54c746f7505bec401e45a68a2de.svg",
-    "static/media/eye-fill.svg": "/static/media/eye-fill.bb5a4e6fd60400167c5055bfb8ae1f3e.svg",
-    "main.3bc02ca7.css.map": "/static/css/main.3bc02ca7.css.map",
-    "main.cbbae7cd.js.map": "/static/js/main.cbbae7cd.js.map"
+    "main.css": "/jennys-blog/static/css/main.3d318677.css",
+    "main.js": "/jennys-blog/static/js/main.b537d7ef.js",
+    "static/media/bg.jpg": "/jennys-blog/static/media/bg.f8154b0707828c548b1c.jpg",
+    "static/media/no-image.png": "/jennys-blog/static/media/no-image.0229ffbf04c314310f9f.png",
+    "static/media/emptyPage.jpg": "/jennys-blog/static/media/emptyPage.4091adb41aeee75a2b7f.jpg",
+    "index.html": "/jennys-blog/index.html",
+    "static/media/trash3.svg": "/jennys-blog/static/media/trash3.0821cea5d47147fcccea629c96c3df80.svg",
+    "static/media/pencil-fill.svg": "/jennys-blog/static/media/pencil-fill.4c640d95a61cb0764a8340cbe3f87cd2.svg",
+    "static/media/pencil-square.svg": "/jennys-blog/static/media/pencil-square.75d078b547e1c0688445b9e47edfd1b9.svg",
+    "static/media/eye-slash-fill.svg": "/jennys-blog/static/media/eye-slash-fill.c1ca9f1d71dd0735bdebe176ca132887.svg",
+    "static/media/check-lg.svg": "/jennys-blog/static/media/check-lg.6fe048a4880199518d7f8eb12152ed04.svg",
+    "static/media/search.svg": "/jennys-blog/static/media/search.b1f781b99ceaafb9c831949bb54ae3cd.svg",
+    "static/media/x-lg.svg": "/jennys-blog/static/media/x-lg.f520e54c746f7505bec401e45a68a2de.svg",
+    "static/media/eye-fill.svg": "/jennys-blog/static/media/eye-fill.bb5a4e6fd60400167c5055bfb8ae1f3e.svg",
+    "static/media/caret-right-fill.svg": "/jennys-blog/static/media/caret-right-fill.b654783430974bfcf6168e3d43ba5131.svg",
+    "static/media/caret-left-fill.svg": "/jennys-blog/static/media/caret-left-fill.438ad83b2317c15ad0ed662cf6dd581f.svg",
+    "main.3d318677.css.map": "/jennys-blog/static/css/main.3d318677.css.map",
+    "main.b537d7ef.js.map": "/jennys-blog/static/js/main.b537d7ef.js.map"
   },
   "entrypoints": [
-    "static/css/main.3bc02ca7.css",
-    "static/js/main.cbbae7cd.js"
+    "static/css/main.3d318677.css",
+    "static/js/main.b537d7ef.js"
   ]
 }

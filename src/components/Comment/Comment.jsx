@@ -4,7 +4,6 @@ import style from './comment.module.css';
 
 import context from '../../context/context';
 import {ReactComponent as TrashIcon} from '../../assets/icons/trash3.svg';
-import Button from '../Button/Button';
 
 const Comment = ({ author, text, created_at, post, _id }) => {
     const {api, user, setPosts} = useContext(context);

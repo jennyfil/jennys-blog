@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 
 import style from './home.module.css';
 
@@ -8,9 +8,17 @@ import ButtonLink from '../../components/ButtonLink/ButtonLink';
 import { path } from "../../utils/constants";
 import context from '../../context/context';
 
-
 const Home = () => {
     const {posts, searchQuery, postsByText} = useContext(context);
+    const [flag, setFlag] = useState(false);
+
+    useEffect(() => {
+        if(postsByText.length) {
+            setFlag(true);
+        }else {
+            setFlag(false);
+        }
+    }, [postsByText]);
 
     return (
         <div className={style.home}>
@@ -25,7 +33,7 @@ const Home = () => {
 
             <div className={style.content}>
                 <PostList posts={searchQuery ? postsByText : posts} />
-                {!postsByText.length && <p>По вашему запросу посты не найдены</p>}
+                {searchQuery && !flag && <p>По вашему запросу посты не найдены</p>}
             </div>
 
         </div>

@@ -19,4 +19,6 @@ export default React.createContext({
     setPostsByText: () => {},
     tags: [],
     setTags: () => {},
+    myComments: [],
+    setMyComments: () => {}
 })

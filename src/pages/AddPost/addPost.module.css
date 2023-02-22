@@ -42,5 +42,23 @@
     display: grid;
     gap: 10px;
     grid-template-rows: auto 1fr;
-    margin-bottom: 10px;
+}
+
+.tags {
+    position: relative;
+    display: flex;
+    gap: 7px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.tags input {
+    padding: 20px 40px 20px 10px;
+}
+
+.absolute {
+    position: absolute;
+    top: 13px;
+    right: 10px;
+    cursor: pointer;
 }

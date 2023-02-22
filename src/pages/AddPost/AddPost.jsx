@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-
 import style from './addPost.module.css';
-
 import context from '../../context/context';
 import Button from '../../components/Button/Button';
 import ButtonBack from '../../components/ButtonBack/ButtonBack';
 import noImg from '../../assets/images/no-image.png';
 import { path } from '../../utils/constants';
+import {ReactComponent as CheckIcon} from '../../assets/icons/check-lg.svg';
+import {ReactComponent as ClearIcon} from '../../assets/icons/x-lg.svg';
 
 
 const AddPost = () => {
@@ -42,17 +42,12 @@ const AddPost = () => {
             title: title,
             text: text,
         }
-
         if(image) {body.image = image}
-
-        if (tags.length) {
-            body.tags = tag ? [...tags, tag] : tags;
-        }
+        if (tags.length) {body.tags = tag ? [...tags, tag] : tags;}
 
         if(id) {
             api.modifyPostById(id, body)
                 .then(data => {
-                    console.log(data);
                     postDataFilter(data);
                 })
         } else {
@@ -65,23 +60,21 @@ const AddPost = () => {
         setTitle('');
         setText('');
         setImage('');
-        setTags([]);
-        setTag("");
     }
 
-    // const addTag = (e) => {
-    //     let text = e.target.value;
-    //     let symbol = text[text.length - 1];
-    //     if (symbol === ",") {
-    //         if (!tags.includes(text.slice(0, text.length - 1))) {
-    //             setTags(prev => [...prev, text.slice(0, text.length - 1)]);
-    //         }
-    //         console.log(tags);
-    //         setTag("");
-    //     } else {
-    //         setTag(text);
-    //     }
-    // }
+    const addTag = (e) => {
+        let text = e.target.value;
+        let symbol = text[text.length - 1];
+        if (symbol === " " || symbol === "," || symbol === ";") {
+            if (!tags.includes(text.slice(0, text.length - 1))) {
+                setTags(prev => [...prev, text.slice(0, text.length - 1)]);
+            }
+            console.log(tags);
+            setTag('');
+        } else {
+            setTag(text);
+        }
+    }
 
     useEffect(() => {
         if(id) {
@@ -92,7 +85,7 @@ const AddPost = () => {
                     setImage(data.image);
                 })
         }
-    }, [])
+    }, [id, api])
 
     return (
         <div className={style.container}>
@@ -135,16 +128,18 @@ const AddPost = () => {
                         onInput={(e) => setText(e.target.value)} />
                 </div>
 
+                <div className={style.tags_block}>
+                    <p>Теги</p>
+                    <div className={style.tags}>
+                        <input
+                            id="tags"
+                            placeholder="Введите теги через запятую"
+                            value={tag}
+                            onInput={addTag}/>
 
-
-                {/* <div className={style.item}>
-                    <label htmlFor="tags">Теги</label>
-                    <input
-                        id="tags"
-                        placeholder="Введите теги через запятую"
-                        value={tag}
-                        onInput={addTag} />
-                </div> */}
+                            {tag && <ClearIcon className={style.absolute} onClick={() => setTag('')} />}
+                    </div>
+                </div>
 
                 <div>
                     <Button btnText={!id ? "Создать пост" : "Изменить пост"} type="submit" />

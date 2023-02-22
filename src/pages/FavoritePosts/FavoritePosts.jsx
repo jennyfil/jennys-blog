@@ -8,16 +8,16 @@ import EmptyPage from "../../components/EmptyPage/EmptyPage";
 import context from "../../context/context";
 
 const FavoritePosts = () => {
-    const {user, api} = useContext(context);
+    const {user, api, posts} = useContext(context);
     const usr = JSON.parse(user);
-    const [myFavoritePosts, setMyFavoritePosts] = useState([]);
+    const [myFavoritePosts, setMyFavoritePosts] = useState(posts.filter(el => el.likes.includes(usr._id)));
 
     useEffect(() => {
         api.getAllPosts()
             .then(posts => {
                 setMyFavoritePosts(posts.filter(el => el.likes.includes(usr._id)));
             })
-    },[myFavoritePosts]);
+    },[posts]);
 
     return (
         <div className={style.container}>

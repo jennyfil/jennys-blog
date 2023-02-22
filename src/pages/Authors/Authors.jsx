@@ -10,8 +10,6 @@ import ButtonBack from '../../components/ButtonBack/ButtonBack';
 const Authors = () => {
     const {authors} = useContext(context);
 
-    // const authorsFiltered = authors.filter(el => el.name !== "Иван Иванов" && el.name !== "123" && el.name !== "12345");
-
     return (
         <div className={style.container}>
             <ButtonBack toPath={path + "home"} />

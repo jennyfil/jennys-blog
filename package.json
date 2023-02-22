@@ -1,6 +1,6 @@
 {
   "name": "jennys-blog",
-  "homepage": "/",
+  "homepage": "/jennys-blog/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

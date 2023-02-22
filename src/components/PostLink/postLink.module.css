@@ -1,0 +1,39 @@
+@import '../../vars.css';
+
+.postLink {
+    box-shadow: var(--box-shadow-main);
+    padding: 30px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s;
+}
+
+.postLink:hover {
+    transform: scale(1.1);
+}
+
+.title {
+    text-align: center;
+    font-size: 1.1em;
+}
+
+/* .title:hover {
+    color: var(--color-red);
+} */
+
+.img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
+
+.img img {
+    height: 100%;
+    width: auto;
+}
+

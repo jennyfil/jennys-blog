@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 
 import { ReactComponent as IconSearch } from '../../assets/icons/search.svg';
 import { ReactComponent as IconClose } from '../../assets/icons/x-lg.svg';
 import style from './search.module.css';
 import context from '../../context/context';
-import { sortPosts } from '../../utils/constants';
 
 const Search = () => {
     const {posts, searchQuery, setSearchQuery, setPostsByText} = useContext(context);

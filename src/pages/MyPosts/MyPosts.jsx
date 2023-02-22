@@ -8,16 +8,16 @@ import context from "../../context/context";
 import EmptyPage from "../../components/EmptyPage/EmptyPage";
 
 const MyPosts = () => {
-    const {user, api} = useContext(context);
+    const {user, api, posts} = useContext(context);
     const usr = JSON.parse(user);
-    const [myPosts, setMyPosts] = useState([]);
+    const [myPosts, setMyPosts] = useState(posts.filter(el => el.author._id === usr._id));
 
     useEffect(() => {
         api.getAllPosts()
             .then(posts => {
                 setMyPosts(posts.filter(el => el.author._id === usr._id));
             })
-    },[])
+    },[posts])
 
     return (
         <div className={style.container}>
@@ -27,6 +27,7 @@ const MyPosts = () => {
                 ? <PostList myPosts={myPosts} />
                 : <EmptyPage fromPage={'myPosts'} />
                 }
+            
             </div>
         </div>
     )

@@ -37,7 +37,9 @@ const AddComment = ({ id, setPost }) => {
 
             <form onSubmit={addComment} className={active ? style.visible : style.not_visible}>
                 <textarea value={newComment} onInput={e => setNewComment(e.target.value)} />
-                <Button type="submit" btnText='Отправить' />
+                <div>
+                    <Button type="submit" btnText='Отправить' />
+                </div>
             </form>
         </div>
     )

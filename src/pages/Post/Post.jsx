@@ -14,7 +14,7 @@ import Comment from '../../components/Comment/Comment';
 const Post = () => {
     const {id} = useParams();
     const navigate = useNavigate();
-    const {api, user, setPosts, posts} = useContext(context);
+    const {api, user, setPosts} = useContext(context);
     const usr = JSON.parse(user);
     const [post, setPost] = useState({});
     const [authorInfo, setAuthorInfo] = useState({});
@@ -58,7 +58,6 @@ const Post = () => {
     // }, [posts])
 
 
-
     useEffect(() => {
         api.getPostById(id)
             .then(data => {
@@ -71,7 +70,7 @@ const Post = () => {
                     setLike(true);
                 }
             })
-    }, [post]);
+    }, []);
 
     const addLike = (e) => {
         e.stopPropagation();
@@ -138,7 +137,7 @@ const Post = () => {
                     
                     <div className={style.content}>
                         <div className={style.img}>
-                            <img src={post.image && post.image} alt="Изображение к посту" />
+                            <img src={post.image} alt="Изображение к посту" />
                         </div>
 
                         <div>{post.text}</div>

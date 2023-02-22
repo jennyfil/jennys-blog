@@ -1,5 +1,5 @@
-export const path = '/';
-// export const path = 'jennys-blog/';
+// export const path = '/';
+export const path = '/jennys-blog/';
 
 export const sortPosts = (data) => {
   return data.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));

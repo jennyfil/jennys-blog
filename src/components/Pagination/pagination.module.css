@@ -1,0 +1,26 @@
+@import '../../vars.css';
+
+.container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 30px;
+}
+
+.container button {
+    cursor: pointer;
+}
+
+.page {
+    height: auto;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active {
+    background-color: var(--color-darkgrey);
+    color: var(--color-lightred);
+
+}

@@ -16,7 +16,7 @@ const Menu = () => {
                 <ButtonLink btnText='Мои комментарии' toPath={path + "my-comments"} />
             </div>
 
-            <Search />
+            {/* <Search /> */}
         </div>
     )
 }
