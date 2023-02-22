@@ -33,7 +33,7 @@ function App() {
   const [searchQuery, setSearchQuery] = useState('');
   const [postsByText, setPostsByText] = useState([]);
   const [myComments, setMyComments] = useState([]);
-
+  
   const year = new Date().getFullYear();
 
   useEffect(() => {
@@ -47,15 +47,20 @@ function App() {
             sortPosts(posts);
             setPosts(posts);
         })
+
+        // api.getAllComments()
+        // .then(comments => {
+        //     setMyComments(comments.filter(el => el.author._id === JSON.parse(user)._id));
+        // })
     }
-  }, []);
+  }, [api]);
 
   useEffect(() => {
     api.getAllComments()
-        .then(comments => {
-            setMyComments(comments.filter(el => el.author._id === JSON.parse(user)._id));
-        })
-}, [posts])
+    .then(comments => {
+        setMyComments(comments.filter(el => el.author._id === JSON.parse(user)._id));
+    })
+}, [])
 
 
   useEffect(() => {

@@ -26,7 +26,7 @@ const Home = () => {
             <div className={style.top_menu}>
                 <div className={style.menu_block}>
                     <ButtonLink btnText='Авторы' toPath={path + "authors"} />
-                    <ButtonLink btnText='Теги' toPath={path + "tags"} />
+                    {/* <ButtonLink btnText='Теги' toPath={path + "tags"} /> */}
                 </div>
                 <Search />
             </div>

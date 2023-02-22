@@ -57,73 +57,77 @@ const Profile = () => {
 
             <div className={style.content}>
                 <h2>Обо мне</h2>
-                <div className={style.image}>
-                    <img src={userInfo.avatar ? userInfo.avatar : noImg} alt="Фото профиля" />
 
-                    { !imgFlag 
-                    ? <div className={style.change_block}>
-                        <div className={style.text} onClick={() => setImgFlag(true)}>
-                            Изменить
+                <div className={style.info}>
+
+                    <div className={style.image}>
+                        <img src={userInfo.avatar ? userInfo.avatar : noImg} alt="Фото профиля" />
+
+                        { !imgFlag 
+                        ? <div className={style.change_block}>
+                            <div className={style.text} onClick={() => setImgFlag(true)}>
+                                Изменить
+                            </div>
                         </div>
+                        : <div className={style.change_block}>
+                            <input className={style.input_upd_img} type="text" value={img} onChange={e => setImg(e.target.value)} />
+                            <CheckIcon className={style.icons} onClick={updImg} />
+                            <CloseIcon className={style.icons} onClick={() => {
+                                setImg(userInfo.avatar);
+                                setImgFlag(false);
+                            }} />
+                        </div>
+                        }
                     </div>
-                    : <div className={style.change_block}>
-                        <input className={style.input_upd_img} type="text" value={img} onChange={e => setImg(e.target.value)} />
-                        <CheckIcon className={style.icons} onClick={updImg} />
-                        <CloseIcon className={style.icons} onClick={() => {
-                            setImg(userInfo.avatar);
-                            setImgFlag(false);
-                        }} />
-                    </div>
-                    }
-                </div>
 
-                <table>
-                    <tbody>
-                        <tr>
-                            <td>Имя:</td>
-                            <td>
-                                { !nameFlag 
-                                ? <div className={style.change_block}>
-                                    <div>{userInfo.name}</div>
-                                    <PencilIcon className={style.icons} onClick={() => setNameFlag(true)} />
-                                </div>
-                                : <div className={style.change_block}>
-                                    <input type="text" value={name} onChange={e => setName(e.target.value)} />
-                                    <CheckIcon className={style.icons} onClick={updUser} />
-                                    <CloseIcon className={style.icons} onClick={() => {
-                                        setName(userInfo.name);
-                                        setNameFlag(false);
-                                    }} />
-                                </div>
-                                }
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Статус:</td>
-                            <td>
-                                { !aboutflag 
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td>Имя:</td>
+                                <td>
+                                    { !nameFlag 
                                     ? <div className={style.change_block}>
-                                        <div>{userInfo.about}</div>
-                                        <PencilIcon className={style.icons} onClick={() => setAboutFlag(true)} />
+                                        <div>{userInfo.name}</div>
+                                        <PencilIcon className={style.icons} onClick={() => setNameFlag(true)} />
                                     </div>
                                     : <div className={style.change_block}>
-                                        <input type="text" value={about} onChange={e => setAbout(e.target.value)} />
+                                        <input type="text" value={name} onChange={e => setName(e.target.value)} />
                                         <CheckIcon className={style.icons} onClick={updUser} />
                                         <CloseIcon className={style.icons} onClick={() => {
-                                            setAbout(userInfo.about);
-                                            setAboutFlag(false);
+                                            setName(userInfo.name);
+                                            setNameFlag(false);
                                         }} />
                                     </div>
-                                }
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Почта:</td>
-                            <td><a href={`mailto:${userInfo.email}`}> {userInfo.email}</a></td>
-                        </tr>
-                    </tbody>
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Статус:</td>
+                                <td>
+                                    { !aboutflag 
+                                        ? <div className={style.change_block}>
+                                            <div>{userInfo.about}</div>
+                                            <PencilIcon className={style.icons} onClick={() => setAboutFlag(true)} />
+                                        </div>
+                                        : <div className={style.change_block}>
+                                            <input type="text" value={about} onChange={e => setAbout(e.target.value)} />
+                                            <CheckIcon className={style.icons} onClick={updUser} />
+                                            <CloseIcon className={style.icons} onClick={() => {
+                                                setAbout(userInfo.about);
+                                                setAboutFlag(false);
+                                            }} />
+                                        </div>
+                                    }
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Почта:</td>
+                                <td><a href={`mailto:${userInfo.email}`}> {userInfo.email}</a></td>
+                            </tr>
+                        </tbody>
 
-                </table>
+                    </table>
+                </div>
 
             </div>
 

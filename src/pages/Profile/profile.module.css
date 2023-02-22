@@ -16,10 +16,17 @@ h2 {
 
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 30px;
     box-shadow: var(--box-shadow-main);
     padding: 30px;
+}
+
+.info {
+    display: flex;
+    gap: 50px;
+    align-items: start;
+    justify-content: center;
 }
 
 .image {

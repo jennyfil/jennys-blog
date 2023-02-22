@@ -1,13 +1,12 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-import style from './postTag.module.css';
+import style from './tag.module.css';
 
 import context from "../../context/context";
 import { path } from "../../utils/constants";
-import PostLink from '../PostLink/PostLink';
 
-const PostTags = () => {
+const Tag = () => {
     const {tags, posts} = useContext(context);
     const [postsByTag, setPostsByTag] = useState([]);
 
@@ -27,9 +26,12 @@ const PostTags = () => {
 
     return (
         <div className={style.container}>
-            {/* { postsByTag.map((post, i) => <PostLink key={post._id + i} {...post} />) } */}
+            {postsByTag.map((post, i) => <div key={post._id + i}>
+                
+            </div>)}
+            
         </div>
     )
 }
 
-export default PostTags;
+export default Tag;
