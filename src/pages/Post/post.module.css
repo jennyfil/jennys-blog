@@ -54,6 +54,10 @@
     font-size: 1.3em;
 }
 
+.link:hover {
+    color: var(--color-red);
+}
+
 .cnt_comments {
     justify-content: start;
     gap: 30px;

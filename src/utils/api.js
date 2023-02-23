@@ -94,14 +94,6 @@ class Api {
         }).then(onResponse);
     }
 
-    // searchPosts(searchQuery) {
-    //     return fetch(`${this.path}/v2/${this.group}/posts/search/?query=${searchQuery}`, {
-    //         headers: {
-    //             "authorization": `Bearer ${this.token}`
-    //         }
-    //     }).then(onResponse);
-    // }
-
     getPostById(postId) {
         return fetch(`${this.path}/v2/${this.group}/posts/${postId}`, {
             headers: {

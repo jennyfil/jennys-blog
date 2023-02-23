@@ -53,7 +53,7 @@ h2 {
 
 table {
     font-size: 1.1em;
-}
+} 
 
 td {
     padding: 10px;
@@ -68,4 +68,8 @@ td {
 
 .icons {
     cursor: pointer;
+}
+
+.mail:hover {
+    color: var(--color-red);
 }

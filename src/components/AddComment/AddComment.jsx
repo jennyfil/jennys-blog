@@ -9,7 +9,7 @@ import Button from '../Button/Button';
 import ButtonLink from '../ButtonLink/ButtonLink';
 
 
-const AddComment = ({ id, setPost }) => {
+const AddComment = ({ id, setPost, setCntComments }) => {
     const {api} = useContext(context);
     const [active, setActive] = useState(false);
     const [newComment, setNewComment] = useState("");
@@ -23,8 +23,8 @@ const AddComment = ({ id, setPost }) => {
         }
         api.addComment(id, body)
             .then(data => {
-                // console.log(data);
                 setPost(data);
+                setCntComments(data.comments.length);
                 setNewComment("");
                 setActive(false);
                 navigate(path + `posts/${id}`);

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 import style from './post.module.css';
 
@@ -10,11 +11,13 @@ import {ReactComponent as TrashIcon} from '../../assets/icons/trash3.svg';
 import ButtonBack from '../../components/ButtonBack/ButtonBack';
 import AddComment from '../../components/AddComment/AddComment';
 import Comment from '../../components/Comment/Comment';
+import Confirm from '../../components/Confiirm/Confirm';
+
 
 const Post = () => {
     const {id} = useParams();
     const navigate = useNavigate();
-    const {api, user, setPosts} = useContext(context);
+    const {api, user, setPosts, posts} = useContext(context);
     const usr = JSON.parse(user);
     const [post, setPost] = useState({});
     const [authorInfo, setAuthorInfo] = useState({});
@@ -23,44 +26,12 @@ const Post = () => {
     const [like, setLike] = useState(false);
     const [visible, setVisible] = useState(true);
 
-
-    // useEffect(() => {
-    //     let arr = [];
-    //     let tg = [];
-    //     posts.forEach(post => {
-    //         if (!arr.filter(el => el._id === post.author._id).length) {
-    //             if (post.author.name !== "Иван Иванов") {
-    //                 arr.push(post.author);
-    //             }
-    //         }
-    //         post.tags.forEach(t => {
-    //             let tgs = t.split(/[\s,\.!]/);
-    //             tgs.forEach(el => {
-    //                 if (el) {
-    //                     if (!tg.includes(el.toLowerCase())) {
-    //                         tg.push(el.toLowerCase());
-    //                     }
-    //                 }
-    //             })
-    //         });
-    //     });
-    //     tg.sort();
-    //     arr.sort((a, b) => {
-    //         if (a.name > b.name) {
-    //             return 1;
-    //         } else {
-    //             return -1;
-    //         }
-    //     });
-    //     setAuthors(arr);
-    //     setTags(tg);
-    //     // fPosts.length === 0 && filterPosts([...posts]);
-    // }, [posts])
-
+    const [active, setActive] = useState(false);
 
     useEffect(() => {
         api.getPostById(id)
             .then(data => {
+                // console.log(data);
                 setPost(data);
                 setAuthorInfo(data.author);
                 setUpdData(data.updated_at);
@@ -70,7 +41,7 @@ const Post = () => {
                     setLike(true);
                 }
             })
-    }, []);
+    }, [posts]);
 
     const addLike = (e) => {
         e.stopPropagation();
@@ -90,6 +61,11 @@ const Post = () => {
                 })
         }
     };
+
+    const confirmDelete = () => {
+        setActive(true);
+    }
+
     const deletePost = () => {
         api.deletePost(id)
             .then(data => {
@@ -98,6 +74,11 @@ const Post = () => {
             })
     };
 
+    const closeForm = () => {
+        setActive(false);
+        navigate(path + `posts/${id}`);
+    }
+
     return (
         <div className={style.post}>
             <ButtonBack btnText={'На главную'} toPath={path + "home"}/>
@@ -105,8 +86,8 @@ const Post = () => {
             <div className={style.content}>
                 { post && post.author && post.author._id === usr._id && 
                     <div className={style.btn_block}>
-                        <Link to={path + `modify/${id}`} ><PencilIcon className={style.icon} /></Link>
-                        <TrashIcon className={style.icon} onClick={deletePost} />
+                        <Link to={path + `modify/${id}`} ><PencilIcon /></Link>
+                        <TrashIcon className={style.icon} onClick={confirmDelete} />
                     </div>
                 }
                     <h2 className={style.heading}>{post.title}</h2>
@@ -130,8 +111,10 @@ const Post = () => {
 
                     <div className={style.cnt_comments}>
                         <div className={style.item}>
-                            <span>Комментарии: </span>
-                            <span>{cntComments}</span>
+                            <HashLink className={style.link} to={path + `posts/${id}/#comments`}>
+                                <span>Комментарии: </span>
+                                <span>{cntComments}</span>
+                            </HashLink>
                         </div>
                     </div>
                     
@@ -146,15 +129,18 @@ const Post = () => {
             </div>
 
             <div className={style.comments_block}>
-                <h3 onClick={() => setVisible(!visible)}>Комментарии к посту</h3>
-                <AddComment id={id} setPost={setPost} />
+                <h3 id='comments' onClick={() => setVisible(!visible)}>Комментарии к посту</h3>
+                <AddComment id={id} setPost={setPost} setCntComments={setCntComments} />
                 
                 <div className={visible ? style.visible : style.not_visible}>
                     {post.comments && post.comments.length > 0
-                        && post.comments.map((comment) => <Comment {...comment} key={comment._id} />)
+                        && post.comments.map((comment) => <Comment {...comment} key={comment._id} setPost={setPost} setCntComments={setCntComments} />)
                     }
                 </div>
             </div>
+
+            { active && <Confirm deleteHandler={deletePost} closeForm={closeForm} /> }
+
         </div>
     )
 }

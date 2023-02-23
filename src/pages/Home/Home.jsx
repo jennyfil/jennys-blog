@@ -9,7 +9,7 @@ import { path } from "../../utils/constants";
 import context from '../../context/context';
 
 const Home = () => {
-    const {posts, searchQuery, postsByText} = useContext(context);
+    const { posts, searchQuery, postsByText} = useContext(context);
     const [flag, setFlag] = useState(false);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const Home = () => {
         }else {
             setFlag(false);
         }
-    }, [postsByText]);
+    }, [posts]);
 
     return (
         <div className={style.home}>
@@ -26,7 +26,6 @@ const Home = () => {
             <div className={style.top_menu}>
                 <div className={style.menu_block}>
                     <ButtonLink btnText='Авторы' toPath={path + "authors"} />
-                    {/* <ButtonLink btnText='Теги' toPath={path + "tags"} /> */}
                 </div>
                 <Search />
             </div>

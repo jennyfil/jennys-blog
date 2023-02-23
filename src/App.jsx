@@ -19,7 +19,6 @@ import Author from './pages/Author/Author';
 import MyPosts from './pages/MyPosts/MyPosts';
 import FavoritePosts from './pages/FavoritePosts/FavoritePosts';
 import MyComments from './pages/MyComments/MyComments';
-import Tags from './pages/Tags/Tags';
 
 function App() {
   const [user, setUser] = useState(localStorage.getItem("user") || '');
@@ -29,7 +28,6 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const [posts, setPosts] = useState([]);
   const [authors, setAuthors] = useState([]);
-  const [tags, setTags] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
   const [postsByText, setPostsByText] = useState([]);
   const [myComments, setMyComments] = useState([]);
@@ -44,46 +42,26 @@ function App() {
     if (token) {
       api.getAllPosts()
         .then(posts => {
-            sortPosts(posts);
-            setPosts(posts);
+          sortPosts(posts);
+          setPosts(posts);
         })
-
-        // api.getAllComments()
-        // .then(comments => {
-        //     setMyComments(comments.filter(el => el.author._id === JSON.parse(user)._id));
-        // })
+      api.getAllComments()
+        .then(data => {
+          setMyComments(data.filter(comment => comment.author._id === JSON.parse(user)._id));
+        })
     }
   }, [api]);
-
-  useEffect(() => {
-    api.getAllComments()
-    .then(comments => {
-        setMyComments(comments.filter(el => el.author._id === JSON.parse(user)._id));
-    })
-}, [])
 
 
   useEffect(() => {
     let authorsArr = [];
-    let tagsArr = [];
     posts.forEach(post => {
         if (!authorsArr.filter(el => el._id === post.author._id).length) {
             if (post.author.name !== "Иван Иванов") {
               authorsArr.push(post.author);
             }
         }
-        post.tags.forEach(tag => {
-          let postTags = tag.split(/[\s,\.!]/);
-          postTags.forEach(el => {
-            if (el) {
-              if (!tagsArr.includes(el.toLowerCase())) {
-                tagsArr.push(el.toLowerCase());
-              }
-            }
-          })
-        });
     });
-    tagsArr.sort();
     authorsArr.sort((a, b) => {
         if (a.name > b.name) {
             return 1;
@@ -92,7 +70,6 @@ function App() {
         }
     });
     setAuthors(authorsArr);
-    setTags(tagsArr);
 }, [posts])
 
   return (
@@ -113,8 +90,6 @@ function App() {
       setSearchQuery,
       postsByText,
       setPostsByText,
-      tags,
-      setTags,
       myComments,
       setMyComments
     }}>
@@ -134,7 +109,6 @@ function App() {
           <Route path={path + "my-posts"} element={<MyPosts />} />
           <Route path={path + "favorite"} element={<FavoritePosts />} />
           <Route path={path + "my-comments"} element={<MyComments />} />
-          <Route path={path + "tags"} element={<Tags />} />
         </Routes>
       </main>
       

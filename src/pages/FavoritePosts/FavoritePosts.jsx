@@ -12,12 +12,13 @@ const FavoritePosts = () => {
     const usr = JSON.parse(user);
     const [myFavoritePosts, setMyFavoritePosts] = useState(posts.filter(el => el.likes.includes(usr._id)));
 
+
     useEffect(() => {
         api.getAllPosts()
             .then(posts => {
                 setMyFavoritePosts(posts.filter(el => el.likes.includes(usr._id)));
             })
-    },[posts]);
+    }, [myFavoritePosts]);
 
     return (
         <div className={style.container}>

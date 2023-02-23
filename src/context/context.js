@@ -17,8 +17,6 @@ export default React.createContext({
     setSearchQuery: () => {},
     postsByText: [],
     setPostsByText: () => {},
-    tags: [],
-    setTags: () => {},
     myComments: [],
     setMyComments: () => {}
 })

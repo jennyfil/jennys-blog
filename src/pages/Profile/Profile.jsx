@@ -122,7 +122,7 @@ const Profile = () => {
                             </tr>
                             <tr>
                                 <td>Почта:</td>
-                                <td><a href={`mailto:${userInfo.email}`}> {userInfo.email}</a></td>
+                                <td><a className={style.mail} href={`mailto:${userInfo.email}`}> {userInfo.email}</a></td>
                             </tr>
                         </tbody>
 

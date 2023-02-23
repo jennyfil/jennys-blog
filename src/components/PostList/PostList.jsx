@@ -24,7 +24,7 @@ const PostList = ({ posts, myPosts, myFavoritePosts }) => {
         <div className={style.posts}>
             <Pagination paginate={paginate} />
 
-            { paginate.setPageData().map((el) => <PostCard key={el._id} {...el} />) }
+            { paginate.setPageData().map((el, i) => <PostCard key={el._id+i} {...el} />) }
 
 
             {/* { posts && posts.map((el) => <PostCard key={el._id} {...el} />) } */}

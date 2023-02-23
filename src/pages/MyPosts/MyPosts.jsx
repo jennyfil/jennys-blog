@@ -17,7 +17,7 @@ const MyPosts = () => {
             .then(posts => {
                 setMyPosts(posts.filter(el => el.author._id === usr._id));
             })
-    },[posts])
+    },[myPosts])
 
     return (
         <div className={style.container}>

@@ -1,6 +1,6 @@
 {
   "name": "jennys-blog",
-  "homepage": "/",
+  "homepage": "/jennys-blog/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -8,6 +8,7 @@
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.1",
     "react-router-dom": "^6.8.1",
+    "react-router-hash-link": "^2.4.3",
     "react-scripts": "5.0.1"
   },
   "scripts": {

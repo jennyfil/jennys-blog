@@ -13,14 +13,21 @@ const PostCard = ({ _id, image, title, likes, comments, author, text, created_at
 
     const { api, user, setPosts } = useContext(context);
     const usr = JSON.parse(user);
-
     const [like, setLike] = useState(false);
     const [cntlikes, setCntLikes] = useState(likes.length);
+    const [cntComments, setCntComments] = useState(comments.length);
 
     useEffect(() => {
         if(likes.length && likes.includes(usr._id)) {
             setLike(true);
         }
+    }, [])
+
+    useEffect(() => {
+        api.getPostById(_id)
+            .then(post => {
+                setCntComments(post.comments.length);
+            })
     }, [])
 
     const addLike = (e) => {
@@ -71,7 +78,7 @@ const PostCard = ({ _id, image, title, likes, comments, author, text, created_at
                     </div>
                     <div className={style.item}>
                         <i className="fa-regular fa-comment" />
-                        <span>{comments.length}</span>
+                        <span>{cntComments}</span>
                     </div>
                     <div className={style.item}>
                         <i className="fa-regular fa-calendar" />

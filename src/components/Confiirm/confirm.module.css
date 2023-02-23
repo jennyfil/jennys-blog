@@ -1,0 +1,51 @@
+@import '../../vars.css';
+
+
+.modal_container {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+
+    display: block;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal {
+    width: 320px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-main);
+    display: grid;
+    gap: 20px;
+    position: relative;
+    height: auto;
+    overflow: visible;
+}
+
+.modal_close {
+    box-sizing: border-box;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+}
+
+.modal_close:hover {
+    color: var(--color-red);
+}
+
+.modal p {
+    font-size: 1.1em;
+    text-align: center;
+}
+
+.answer {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
