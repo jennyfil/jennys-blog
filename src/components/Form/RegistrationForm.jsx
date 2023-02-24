@@ -1,8 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { useForm } from 'react-hook-form';
-
 import style from './style.module.css';
-
 import Button from '../Button/Button';
 import ButtonLink from '../ButtonLink/ButtonLink';
 import { Email_RegExp, PWD_RegExp, Message } from '../../utils/constants';
@@ -10,13 +8,11 @@ import authForm from '../../context/authForm';
 import { ReactComponent as VisibleEyeIcon } from '../../assets/icons/eye-fill.svg';
 import { ReactComponent as NotVisibleEyeIcon } from '../../assets/icons/eye-slash-fill.svg';
 
-
 const RegistrationForm = ({ formHandler }) => {
     const {email, setEmail, password, setPassword, confirmPwd, setConfirmPwd, auth, setAuth} = useContext(authForm);
     const [testPwd, setTestPwd] = useState(true);
     const [visiblePwd, setVisiblePwd] = useState(false);
     const [visibleConfirmPwd, setVisibleConfirmPwd] = useState(false);
-
     const {register, handleSubmit, formState: { errors }} = useForm({ mode: 'onBlur' });
 
     const checkPwd = (val, type='main') => {
@@ -29,7 +25,6 @@ const RegistrationForm = ({ formHandler }) => {
             }
         }
     }
-
 
     return (
         <form onSubmit={handleSubmit(formHandler)}>

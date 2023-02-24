@@ -1,8 +1,8 @@
-import style from './buttonLink.module.css';
+import style from './buttonLinkActive.module.css';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ButtonLink = ({ toPath, onClick, btnText }) => {
+const ButtonLinkActive = ({ toPath, onClick, btnText }) => {
     return (
         <Link className={style.btnLink} to={toPath} onClick={onClick}>
             {btnText}
@@ -10,4 +10,4 @@ const ButtonLink = ({ toPath, onClick, btnText }) => {
     )
 }
 
-export default ButtonLink;
+export default ButtonLinkActive;

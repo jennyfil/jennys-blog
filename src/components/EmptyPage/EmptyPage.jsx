@@ -1,5 +1,4 @@
 import style from './emptyPage.module.css';
-
 import img from '../../assets/images/emptyPage.jpg';
 
 const EmptyPage = ({ fromPage }) => {

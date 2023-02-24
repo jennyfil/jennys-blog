@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
-
 import style from './home.module.css';
-
 import PostList from "../../components/PostList/PostList";
 import Search from "../../components/Search/Search";
 import ButtonLink from '../../components/ButtonLink/ButtonLink';
@@ -22,14 +20,12 @@ const Home = () => {
 
     return (
         <div className={style.home}>
-
             <div className={style.top_menu}>
                 <div className={style.menu_block}>
                     <ButtonLink btnText='Авторы' toPath={path + "authors"} />
                 </div>
                 <Search />
             </div>
-
             <div className={style.content}>
                 <PostList posts={searchQuery ? postsByText : posts} />
                 {searchQuery && !flag && <p>По вашему запросу посты не найдены</p>}

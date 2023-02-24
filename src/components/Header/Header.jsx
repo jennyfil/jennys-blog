@@ -1,11 +1,8 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-
 import style from './header.module.css';
-
 import { path } from '../../utils/constants';
 import context from '../../context/context';
-
 
 const Header = () => {
     const {user, setUser, setToken, setLoggedIn} = useContext(context);
@@ -22,10 +19,9 @@ const Header = () => {
     }
 
     return (
-        <header>
+        <header className={style.header}>
             <nav>
                 {!user && <Link onClick={() => setLoggedIn(prev => !prev)}>Войти</Link>}
-
                 {user && <>
                     <Link to={path + 'home'}>Home</Link>
                     <Link to={path + 'add'}>Создать пост</Link>
@@ -33,7 +29,6 @@ const Header = () => {
                     <Link to={path} onClick={logOut} >Выйти</Link>
                 </>}
             </nav>
-            
         </header>
     )
 }

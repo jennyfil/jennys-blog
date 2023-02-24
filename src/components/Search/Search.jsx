@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-
 import { ReactComponent as IconSearch } from '../../assets/icons/search.svg';
 import { ReactComponent as IconClose } from '../../assets/icons/x-lg.svg';
 import style from './search.module.css';
@@ -7,12 +6,10 @@ import context from '../../context/context';
 
 const Search = () => {
     const {posts, searchQuery, setSearchQuery, setPostsByText} = useContext(context);
-
     const search = (e) =>{
         setSearchQuery(e.target.value);
         setPostsByText(posts.filter(p => p.text.toLowerCase().includes(e.target.value.toLowerCase())));
     }
-
 
     return (
         <div className={style.search} >
@@ -26,7 +23,6 @@ const Search = () => {
                 ? <IconClose className={style.cross} onClick={() => setSearchQuery('')} />
                 : <IconSearch className={style.loupe}/>
             }
-
         </div>
     )
 }

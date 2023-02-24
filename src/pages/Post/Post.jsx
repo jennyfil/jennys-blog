@@ -1,9 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-
 import style from './post.module.css';
-
 import context from '../../context/context';
 import { path, dataFilter } from '../../utils/constants';
 import {ReactComponent as PencilIcon} from '../../assets/icons/pencil-square.svg';
@@ -12,7 +10,6 @@ import ButtonBack from '../../components/ButtonBack/ButtonBack';
 import AddComment from '../../components/AddComment/AddComment';
 import Comment from '../../components/Comment/Comment';
 import Confirm from '../../components/Confiirm/Confirm';
-
 
 const Post = () => {
     const {id} = useParams();
@@ -25,18 +22,15 @@ const Post = () => {
     const [cntComments, setCntComments] = useState([]);
     const [like, setLike] = useState(false);
     const [visible, setVisible] = useState(true);
-
     const [active, setActive] = useState(false);
 
     useEffect(() => {
         api.getPostById(id)
             .then(data => {
-                // console.log(data);
                 setPost(data);
                 setAuthorInfo(data.author);
                 setUpdData(data.updated_at);
                 setCntComments(data.comments.length);
-
                 if(data.likes.length && data.likes.includes(usr._id)) {
                     setLike(true);
                 }
@@ -46,7 +40,6 @@ const Post = () => {
     const addLike = (e) => {
         e.stopPropagation();
         e.preventDefault();
-
         if(like) {
             api.deleteLike(id)
                 .then(data => {
@@ -82,7 +75,6 @@ const Post = () => {
     return (
         <div className={style.post}>
             <ButtonBack btnText={'На главную'} toPath={path + "home"}/>
-        
             <div className={style.content}>
                 { post && post.author && post.author._id === usr._id && 
                     <div className={style.btn_block}>
@@ -125,22 +117,18 @@ const Post = () => {
 
                         <div>{post.text}</div>
                     </div>
-
             </div>
 
             <div className={style.comments_block}>
                 <h3 id='comments' onClick={() => setVisible(!visible)}>Комментарии к посту</h3>
                 <AddComment id={id} setPost={setPost} setCntComments={setCntComments} />
-                
                 <div className={visible ? style.visible : style.not_visible}>
                     {post.comments && post.comments.length > 0
                         && post.comments.map((comment) => <Comment {...comment} key={comment._id} setPost={setPost} setCntComments={setCntComments} />)
                     }
                 </div>
             </div>
-
             { active && <Confirm deleteHandler={deletePost} closeForm={closeForm} /> }
-
         </div>
     )
 }

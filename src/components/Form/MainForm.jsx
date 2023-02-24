@@ -1,15 +1,12 @@
 import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
-
 import style from './style.module.css';
-
 import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
 import { ReactComponent as CloseIcon } from '../../assets/icons/x-lg.svg';
 import context from "../../context/context";
 import AuthForm from "../../context/authForm";
 import { path } from "../../utils/constants";
-
 
 const MainForm = ({ type }) => {
     const {api, loggedIn, setLoggedIn, setToken, user, setUser} = useContext(context);
@@ -45,7 +42,6 @@ const MainForm = ({ type }) => {
                     if(!auth) {
                         api.signIn(body)
                             .then(data => {
-                                // console.log(data);
                                 setToken(data.token);
                                 setUser(JSON.stringify(data.data));
                                 localStorage.setItem("token", data.token);
@@ -87,7 +83,6 @@ const MainForm = ({ type }) => {
                 </div>
             </div>
         </AuthForm.Provider>
-
     )
 }
 

@@ -1,17 +1,14 @@
 import React, { useState, useEffect, useContext } from 'react';
-
 import style from './comment.module.css';
-
 import context from '../../context/context';
 import {ReactComponent as TrashIcon} from '../../assets/icons/trash3.svg';
 import Confirm from '../Confiirm/Confirm';
 
-const Comment = ({ author, text, created_at, post, _id, setCntComments, setPost }) => {
+const Comment = ({ author, text, created_at, post, _id, setCntComments }) => {
     const {api, user, setPosts} = useContext(context);
     const usr = JSON.parse(user);
     const [name, setName] = useState("");
     const [active, setActive] = useState(false);
-
 
     useEffect(() => {
         api.getUserById(author)
@@ -24,7 +21,6 @@ const Comment = ({ author, text, created_at, post, _id, setCntComments, setPost 
         api.deleteComment(post, _id)
             .then(data => {
                 if(!data.error) {
-                    // setPost(data);
                     setPosts(prev =>  prev.map(post => {
                             return post._id === data._id ? data : post;
                         }));
@@ -36,7 +32,6 @@ const Comment = ({ author, text, created_at, post, _id, setCntComments, setPost 
     const confirmDelete = () => {
         setActive(true);
     }
-
     const closeForm = () => {
         setActive(false);
     }

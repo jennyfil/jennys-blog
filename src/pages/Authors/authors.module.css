@@ -6,24 +6,43 @@
 }
 
 .content {
-    margin-top: 10px 0 30px;
-    min-height: 100vh;
+    height: 100%;
     display: flex;
-    flex-direction: column;
-    gap: 15px;
+    gap: 30px;
     padding: 40px;
-    box-shadow: var(--box-shadow-main);
     border-radius: 30px;
     font-size: 1.2em;
+    flex-wrap: wrap;
 }
 
 .item {
+    padding: 10px;
+    width: 250px;
+    height: 230px;
+    border-radius: 15px;
     cursor: pointer;
     color: #000;
+    display: flex;
+    flex-direction: column;
+    box-shadow: var(--box-shadow-main);
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
 }
 
 .item:hover {
     color: var(--color-red);
 }
 
+.img {
+    width: 120px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.img img {
+    width: auto;
+    height: 100%;
+}

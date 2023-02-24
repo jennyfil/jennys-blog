@@ -1,7 +1,5 @@
 import style from './startPage.module.css';
-
 import bg from '../../assets/images/bg.jpg';
-
 
 const StartPage = () => {
     return (

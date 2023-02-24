@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-
 import style from './profile.module.css';
-
 import {ReactComponent as PencilIcon} from '../../assets/icons/pencil-fill.svg';
 import {ReactComponent as CheckIcon} from '../../assets/icons/check-lg.svg';
 import {ReactComponent as CloseIcon} from '../../assets/icons/x-lg.svg';
@@ -13,14 +11,12 @@ const Profile = () => {
     const {user, setUser, api} = useContext(context);
     const usr = JSON.parse(user);
     const [userInfo, setUserInfo] = useState(usr);
-
     const [nameFlag, setNameFlag] = useState(false);
     const [name, setName] = useState(userInfo.name);
     const [aboutflag, setAboutFlag] = useState(false);
     const [about, setAbout] = useState(userInfo.about);
     const [imgFlag, setImgFlag] = useState(false);
     const [img, setImg] = useState(userInfo.avatar);
-
 
     useEffect(() => {
         api.getUserById(usr._id)
@@ -54,15 +50,12 @@ const Profile = () => {
     return (
         <div className={style.container}>
             <Menu />
-
             <div className={style.content}>
                 <h2>Обо мне</h2>
 
                 <div className={style.info}>
-
                     <div className={style.image}>
                         <img src={userInfo.avatar ? userInfo.avatar : noImg} alt="Фото профиля" />
-
                         { !imgFlag 
                         ? <div className={style.change_block}>
                             <div className={style.text} onClick={() => setImgFlag(true)}>
@@ -125,12 +118,9 @@ const Profile = () => {
                                 <td><a className={style.mail} href={`mailto:${userInfo.email}`}> {userInfo.email}</a></td>
                             </tr>
                         </tbody>
-
                     </table>
                 </div>
-
             </div>
-
         </div>
     )
 }

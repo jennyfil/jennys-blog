@@ -1,4 +1,4 @@
-import React,{ useState } from "react";
+import React, { useState } from "react";
 
 export default (data, cnt) => {
     const maxPage = Math.ceil(data.length / cnt);

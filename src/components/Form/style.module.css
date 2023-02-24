@@ -1,6 +1,5 @@
 @import '../../vars.css';
 
-
 /*------------ MainForm ------------*/
 .modal_container {
     position: fixed;
@@ -43,7 +42,6 @@
 .modal_close:hover {
     color: var(--color-red);
 }
-
 
 /*------------ LoginForm ------------*/
 

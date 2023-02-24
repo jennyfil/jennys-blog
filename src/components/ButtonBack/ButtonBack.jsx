@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-
 import style from './buttonBack.module.css';
 
 const ButtonBack = ({ toPath, btnText }) => {

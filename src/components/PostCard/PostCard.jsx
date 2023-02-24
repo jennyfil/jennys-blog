@@ -1,7 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-
 import style from './postCard.module.css';
-
 import noImg from '../../assets/images/no-image.png';
 import ButtonLink from '../ButtonLink/ButtonLink';
 import { path, postData, dataFilter } from '../../utils/constants';
@@ -10,7 +8,6 @@ import context from '../../context/context';
 const PostCard = ({ _id, image, title, likes, comments, author, text, created_at, updated_at }) => {
     const updData =  updated_at.substr(0, 10);
     const data = created_at.substr(0, 10);
-
     const { api, user, setPosts } = useContext(context);
     const usr = JSON.parse(user);
     const [like, setLike] = useState(false);
@@ -53,7 +50,6 @@ const PostCard = ({ _id, image, title, likes, comments, author, text, created_at
         }
     }
 
-
     return (
         <div className={style.card}>
             <div className={style.sticky} onClick={addLike}>
@@ -92,7 +88,6 @@ const PostCard = ({ _id, image, title, likes, comments, author, text, created_at
 
                 <ButtonLink className={style.btn} btnText="Читать.." toPath={path + `posts/${_id}`} />
             </div>
-            
         </div>
     )
 }

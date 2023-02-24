@@ -1,6 +1,6 @@
 @import '../../vars.css';
 
-header {
+.header {
     text-align: center;
     padding: 10px;
     height: 50px;
@@ -20,4 +20,3 @@ header a {
 header a:hover {
     color: var(--color-red);
 }
-

@@ -1,14 +1,9 @@
-import React, { useContext } from 'react';
-
+import React from 'react';
 import style from './myComment.module.css';
-
-import context from '../../context/context';
 import ButtonLink from '../ButtonLink/ButtonLink';
 import { path } from '../../utils/constants';
 
 const MyComment = ({ text, created_at, post }) => {
-    const {api} = useContext(context);
-
     return (
         <div className={style.container}>
             <div className={style.comment}>
@@ -19,7 +14,6 @@ const MyComment = ({ text, created_at, post }) => {
             <div className={style.btnLink}>
                 <ButtonLink toPath={path + `posts/${post}`} btnText={'Перейти к посту'}/>
             </div>
-
         </div>
     )
 }

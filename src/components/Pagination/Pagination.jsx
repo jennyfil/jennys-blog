@@ -1,10 +1,7 @@
 import React from 'react';
-
 import style from './pagination.module.css';
-
 import { ReactComponent as CaretRight } from '../../assets/icons/caret-right-fill.svg';
 import { ReactComponent as CaretLeft } from '../../assets/icons/caret-left-fill.svg';
-
 
 const Pagination = ({ paginate }) => {
     const max = paginate.maxPage;
@@ -20,7 +17,6 @@ const Pagination = ({ paginate }) => {
             <button className={style.page} disabled={current === 1} onClick={paginate.previous}>
                 <CaretLeft />
             </button>
-
             {pages.map(p => <button 
                                 className={p === current ? `${style.page} ${style.active}` : style.page}
                                 key={p}

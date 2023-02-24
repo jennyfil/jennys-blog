@@ -29,27 +29,6 @@ class Api {
         }).then(onResponse);
     }
 
-    // resetPassword() {
-    //     return fetch(`${this.path}/password-reset/`, {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "authorization": `Bearer ${this.token}`
-    //         }
-    //     }).then(onResponse);
-    // }
-
-    // changePassword(body, id) {
-    //     return fetch(`${this.path}/password-reset/${id}/${this.token}`, {
-    //         method: "POST",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "authorization": `Bearer ${this.token}`
-    //         },
-    //         body: JSON.stringify(body)
-    //     }).then(onResponse);
-    // }
-
     getAllUsers() {
         return fetch(`${this.path}/v2/group-8/users`, {
             headers: {
@@ -186,15 +165,6 @@ class Api {
             }
         }).then(onResponse);
     }
-
-    // getPaginate() {
-    //     return fetch(`${this.path}/v2/${this.group}/posts/paginate?page=<номер страницы>&limit=<число ограничивающее вывод на страницу>&query=<строка фильтрации по title>`, {
-    //         headers: {
-    //             "authorization": `Bearer ${this.token}`
-    //         }
-    //     }).then(onResponse);
-    // }
-
 }
 
 export {Api};

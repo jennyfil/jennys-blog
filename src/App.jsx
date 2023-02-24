@@ -1,6 +1,5 @@
 import React,{ useState, useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-
 import style from './App.module.css';
 import { Api } from './utils/api';
 import { path, sortPosts } from './utils/constants';
